@@ -1,5 +1,5 @@
 /* ------------------------------
-   Background Animation
+   Scroll‑Reactive Background
 --------------------------------*/
 const canvas = document.getElementById("bg-canvas");
 const ctx = canvas.getContext("2d");
@@ -14,28 +14,30 @@ window.addEventListener("resize", resize);
 let t = 0;
 
 function draw() {
-    t += 0.003;
+    t += 0.004;
 
     const w = canvas.width;
     const h = canvas.height;
 
     ctx.clearRect(0, 0, w, h);
 
-    for (let i = 0; i < 4; i++) {
+    const scrollFactor = window.scrollY * 0.002;
+
+    for (let i = 0; i < 5; i++) {
         ctx.beginPath();
 
         for (let x = 0; x < w; x++) {
             const y =
                 h * 0.3 +
-                Math.sin(x * 0.002 + t + i) * (30 + i * 10) +
-                Math.sin(x * 0.005 + t * 2 + i) * (15 + i * 5);
+                Math.sin(x * 0.002 + t + i + scrollFactor) * (40 + i * 12) +
+                Math.sin(x * 0.005 + t * 2 + i) * (20 + i * 6);
 
             ctx.lineTo(x, y + i * 70);
         }
 
         const gradient = ctx.createLinearGradient(0, 0, w, h);
-        gradient.addColorStop(0, `hsla(${180 + i * 20}, 40%, 40%, 0.15)`);
-        gradient.addColorStop(1, `hsla(${200 + i * 20}, 40%, 40%, 0.05)`);
+        gradient.addColorStop(0, `hsla(${160 + i * 15 + scrollFactor * 40}, 40%, 40%, 0.18)`);
+        gradient.addColorStop(1, `hsla(${200 + i * 15 + scrollFactor * 40}, 40%, 40%, 0.06)`);
 
         ctx.strokeStyle = gradient;
         ctx.lineWidth = 2;

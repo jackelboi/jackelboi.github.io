@@ -1,14 +1,8 @@
-/* Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
 body {
-    font-family: "Inter", sans-serif;
-    color: #22444d;
-    background: #feffef;
+    font-family: "Inter", sans-serif; 
+    color: #22444d; 
+    background: #feffef; 
     overflow-x: hidden;
 }
 
@@ -29,33 +23,17 @@ canvas#bg-canvas {
     left: 0;
     width: 230px;
     height: 100vh;
-    background: rgba(34, 68, 77, 0.1);
+    background: rgba(55, 99, 105, 0.1);
     backdrop-filter: blur(6px);
     padding: 2rem 1.5rem;
-    border-right: 1px solid rgba(34, 68, 77, 0.2);
-}
-
-#sidebar h2 {
-    margin-bottom: 1.5rem;
-}
-
-#sidebar ul {
-    list-style: none;
-}
-
-#sidebar li {
-    margin: 1rem 0;
+    border-right: 1px solid rgba(55, 99, 105, 0.2);
+    text-align: left;
 }
 
 #sidebar a {
+    color: #376369;
     text-decoration: none;
-    color: #22444d;
-    font-weight: 600;
-    transition: opacity 0.2s ease;
-}
-
-#sidebar a:hover {
-    opacity: 0.6;
+    font-weight: 700;
 }
 
 /* Main Content */
@@ -63,50 +41,39 @@ canvas#bg-canvas {
     margin-left: 260px;
     padding: 3rem 2rem;
     width: min(900px, 90%);
+    margin-right: auto;
+    margin-left: auto;
 }
 
-header {
-    margin-bottom: 3rem;
-}
-
-header h1 {
-    font-size: 3rem;
-    font-weight: 700;
-}
-
-header .contact a {
-    color: #22444d;
-    text-decoration: none;
-    margin: 0 0.3rem;
-}
-
-section {
-    margin-top: 3rem;
-}
-
-h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    border-left: 4px solid #22444d;
-    padding-left: 0.5rem;
-}
-
-.card {
-    background: rgba(34, 68, 77, 0.08);
-    padding: 1.2rem 1.5rem;
-    border-radius: 10px;
-    margin-bottom: 1.2rem;
+/* Bubble Containers */
+.bubble {
+    background: rgba(55, 99, 105, 0.08);
+    padding: 2rem;
+    border-radius: 25px;
+    margin: 2rem auto;
+    width: 90%;
     backdrop-filter: blur(4px);
+    border: 1px solid rgba(55, 99, 105, 0.15);
 }
 
+/* Cards inside bubbles */
+.card {
+    background: rgba(55, 99, 105, 0.12);
+    padding: 1.2rem 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1.2rem;
+}
+
+/* Skills */
 .skills {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 0.6rem;
 }
 
 .skills li {
-    background: rgba(34, 68, 77, 0.15);
+    background: rgba(55, 99, 105, 0.15);
     padding: 0.4rem 0.8rem;
     border-radius: 6px;
 }
