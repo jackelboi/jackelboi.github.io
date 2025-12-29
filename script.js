@@ -79,6 +79,64 @@ function drawClouds() {
 }
 
 drawClouds();
+/* ------------------------------
+   Navy Ribbon Waves (Option C)
+--------------------------------*/
+const waveCanvas = document.getElementById("wave-canvas");
+const waveCtx = waveCanvas.getContext("2d");
+
+function resizeWaves() {
+    waveCanvas.width = window.innerWidth;
+    waveCanvas.height = window.innerHeight;
+}
+resizeWaves();
+window.addEventListener("resize", resizeWaves);
+
+let waveT = 0;
+
+function drawWaves() {
+    waveT += 0.008;
+
+    const w = waveCanvas.width;
+    const h = waveCanvas.height;
+
+    waveCtx.clearRect(0, 0, w, h);
+
+    const scroll = window.scrollY || 0;
+    const scrollShift = scroll * 0.002;
+
+    const layers = 4;
+
+    for (let i = 0; i < layers; i++) {
+        const amplitude = 40 + i * 25;
+        const wavelength = 0.004 + i * 0.0015;
+        const speed = 0.6 + i * 0.2;
+
+        waveCtx.beginPath();
+
+        for (let x = 0; x <= w; x++) {
+            const y =
+                h * 0.5 +
+                Math.sin(x * wavelength + waveT * speed + i) * amplitude +
+                Math.cos(x * wavelength * 0.6 + waveT * speed * 0.7) * (amplitude * 0.4) +
+                scrollShift * (i * 40);
+
+            if (x === 0) waveCtx.moveTo(x, y);
+            else waveCtx.lineTo(x, y);
+        }
+
+        const navy = `hsla(220, 45%, ${20 + i * 8}%, ${0.18 - i * 0.03})`;
+
+        waveCtx.strokeStyle = navy;
+        waveCtx.lineWidth = 2 + i * 0.7;
+        waveCtx.stroke();
+    }
+
+    requestAnimationFrame(drawWaves);
+}
+
+drawWaves();
+
 
 /* ------------------------------
    Reveal on Scroll
