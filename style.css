@@ -6,32 +6,40 @@
 }
 
 body {
-    font-family: "Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: "Bricolage Grotesque", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     background: #ffffff;
-    color: #376369;
+    color: #000000;
     overflow-x: hidden;
     text-align: center;
     font-weight: 400;
 }
 
-/* Background canvas */
+/* Background canvases */
+#ripple-canvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -3;
+    pointer-events: none;
+}
+
+#wave-canvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    pointer-events: none;
+}
+
 #bg-canvas {
     position: fixed;
     inset: 0;
     width: 100%;
     height: 100%;
     z-index: -1;
-    
-    /* Deep background wave canvas */
-#wave-canvas {
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -2; /* behind everything */
     pointer-events: none;
-}
-
 }
 
 /* Main content layout */
@@ -84,7 +92,7 @@ p {
 
 /* Contact links */
 .contact a {
-    color: #376369;
+    color: #000000;
     text-decoration: none;
     margin: 0 0.35rem;
     font-weight: 600;
@@ -94,7 +102,7 @@ p {
 }
 
 .contact a:hover {
-    border-color: rgba(55, 99, 105, 0.4);
+    border-color: rgba(0, 0, 0, 0.4);
     opacity: 0.8;
 }
 
@@ -105,12 +113,12 @@ p {
     border-radius: 999px;
     object-fit: cover;
     margin-bottom: 1.5rem;
-    border: 3px solid rgba(55, 99, 105, 0.15);
+    border: 3px solid rgba(0, 0, 0, 0.15);
 }
 
 /* Cards */
 .card {
-    background: rgba(55, 99, 105, 0.08);
+    background: rgba(0, 0, 0, 0.08);
     padding: 1.5rem 1.7rem;
     border-radius: 18px;
     margin-bottom: 1.6rem;
@@ -148,7 +156,7 @@ ul.skills {
 }
 
 .skills li {
-    background: rgba(55, 99, 105, 0.15);
+    background: rgba(0, 0, 0, 0.15);
     padding: 0.5rem 1.1rem;
     border-radius: 999px;
     font-size: 0.95rem;
@@ -172,24 +180,14 @@ footer p {
     transform: translateY(0);
 }
 
-/* Slight stagger effect based on order */
-.section:nth-of-type(2).reveal {
-    transition-delay: 0.05s;
-}
-.section:nth-of-type(3).reveal {
-    transition-delay: 0.1s;
-}
-.section:nth-of-type(4).reveal {
-    transition-delay: 0.15s;
-}
-.section:nth-of-type(5).reveal {
-    transition-delay: 0.2s;
-}
-.section:nth-of-type(6).reveal {
-    transition-delay: 0.25s;
-}
+/* Stagger */
+.section:nth-of-type(2).reveal { transition-delay: 0.05s; }
+.section:nth-of-type(3).reveal { transition-delay: 0.1s; }
+.section:nth-of-type(4).reveal { transition-delay: 0.15s; }
+.section:nth-of-type(5).reveal { transition-delay: 0.2s; }
+.section:nth-of-type(6).reveal { transition-delay: 0.25s; }
 
-/* Responsive tweaks */
+/* Responsive */
 @media (max-width: 700px) {
     .card {
         text-align: left;

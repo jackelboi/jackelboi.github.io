@@ -127,6 +127,54 @@ function drawWaves() {
 drawWaves();
 
 /* ------------------------------
+   Mouse Reactive Ripples
+--------------------------------*/
+const rippleCanvas = document.getElementById("ripple-canvas");
+const rippleCtx = rippleCanvas.getContext("2d");
+
+function resizeRipples() {
+    rippleCanvas.width = window.innerWidth;
+    rippleCanvas.height = window.innerHeight;
+}
+resizeRipples();
+window.addEventListener("resize", resizeRipples);
+
+let ripples = [];
+
+window.addEventListener("mousemove", (e) => {
+    ripples.push({
+        x: e.clientX,
+        y: e.clientY,
+        radius: 0,
+        alpha: 0.35
+    });
+});
+
+function drawRipples() {
+    rippleCtx.clearRect(0, 0, rippleCanvas.width, rippleCanvas.height);
+
+    ripples.forEach((r, i) => {
+        r.radius += 2.2;
+        r.alpha -= 0.008;
+
+        if (r.alpha <= 0) {
+            ripples.splice(i, 1);
+            return;
+        }
+
+        rippleCtx.beginPath();
+        rippleCtx.arc(r.x, r.y, r.radius, 0, Math.PI * 2);
+        rippleCtx.strokeStyle = `rgba(0, 0, 0, ${r.alpha})`;
+        rippleCtx.lineWidth = 1.8;
+        rippleCtx.stroke();
+    });
+
+    requestAnimationFrame(drawRipples);
+}
+
+drawRipples();
+
+/* ------------------------------
    Reveal on Scroll
 --------------------------------*/
 const reveals = document.querySelectorAll(".reveal");
