@@ -71,6 +71,12 @@ h1 {
     letter-spacing: 0.03em;
 }
 
+.subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 0.7rem;
+    opacity: 0.85;
+}
+
 h2 {
     font-size: clamp(2rem, 3.2vw, 2.4rem);
     margin-bottom: 2.5rem;
