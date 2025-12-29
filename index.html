@@ -4,27 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jack Joseph</title>
+
+    <!-- Free Etna‑like font -->
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;400;600;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
     <canvas id="bg-canvas"></canvas>
 
-    <nav id="sidebar">
-        <h2>Jack Joseph</h2>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#education">Education</a></li>
-        </ul>
-    </nav>
-
     <main id="content">
-        <header class="reveal">
+
+        <!-- HEADER -->
+        <header class="section reveal">
+            <img src="assets/profile.jpg" alt="Profile Photo" class="profile-photo" />
             <h1>Jack Joseph</h1>
-            <p>3rd Year Engineering with Management Student — Trinity College Dublin</p>
+            <p class="subtitle">Engineering with Management — Trinity College Dublin</p>
             <p class="contact">
                 <a href="mailto:josephj1@tcd.ie">josephj1@tcd.ie</a> • 
                 <a href="https://www.linkedin.com/in/jack-joseph-b38851240/">LinkedIn</a> • 
@@ -32,7 +28,8 @@
             </p>
         </header>
 
-        <section id="about" class="reveal">
+        <!-- ABOUT -->
+        <section id="about" class="section reveal shade-1">
             <h2>About Me</h2>
             <p>
                 I am a 3rd year Engineering with Management student at Trinity College Dublin,
@@ -41,50 +38,53 @@
             </p>
         </section>
 
-        <section id="experience" class="reveal">
+        <!-- EXPERIENCE -->
+        <section id="experience" class="section reveal shade-2">
             <h2>Experience</h2>
 
             <div class="card">
                 <h3>Marketing — Sprout & Co</h3>
                 <p class="date">Sep 2022 – March 2023</p>
                 <ul>
-                    <li>Originally starting solely as a marketing intern, I quickly took on responsibilities such as head of customer relationship management, lead graphic designer, lead filmmaker and editor, etc.</li>
-                    <li>Succeeded in cutting operational costs by roughly €8,000, by doing all CRM, signage, graphic design, and videography in-house.</li>
+                    <li>Originally starting solely as a marketing intern, I quickly took on responsibilities such as head of CRM, lead graphic designer, filmmaker, and editor.</li>
+                    <li>Cut operational costs by ~€8,000 by bringing CRM, signage, design, and videography in‑house.</li>
                 </ul>
             </div>
 
             <div class="card">
-                <h3>Tower Engineer & Cheif Structural Engineer - Trinity Floating Wind</h3>
+                <h3>Tower Engineer & Chief Structural Engineer — Trinity Floating Wind</h3>
                 <p class="date">July 2024 – Present</p>
                 <ul>
-                    <li>1st Place for Power Generation Efficiency</li>
-                    <li>1st Place for Sustainable Transport</li>
-                    <li>2nd Best All-Around Model</li>
-                    <li>Conceptualized, Designed, and Manufactured the ball joint and towner system.</li>
+                    <li>1st Place — Power Generation Efficiency</li>
+                    <li>1st Place — Sustainable Transport</li>
+                    <li>2nd Best All‑Around Model</li>
+                    <li>Designed and manufactured the ball joint and tower system.</li>
                 </ul>
             </div>
         </section>
 
-        <section id="projects" class="reveal">
+        <!-- PROJECTS -->
+        <section id="projects" class="section reveal shade-1">
             <h2>Projects</h2>
 
             <div class="card">
-                <h3>Custom Hi-fi Speaker Build</h3>
-                <p>Hi-fi Speaker featuring a 2-way 2nd order custom 4534Hz crossover, bluetooth or line-in, volume control, etc.</p>
+                <h3>Custom Hi‑Fi Speaker Build</h3>
+                <p>2‑way 2nd‑order custom 4534Hz crossover, Bluetooth/line‑in, volume control, and tuned enclosure.</p>
             </div>
 
             <div class="card">
                 <h3>Jackelboi Customs</h3>
-                <p>
-                <li>Founded and operated a sneaker resale and customization business, designing and producing durable, high-quality custom footwear</li>
-                <li>Managed end-to-end operations including product design, e-commerce sales, pricing, fulfillment, and customer relations</li>
-                <li>Built and executed digital marketing and social media strategy, growing an audience to 5,700+ Instagram followers and 100,000+ YouTube views organically</li>
-                <li>Generated $89,000+ in revenue over 7 years via multiple e-commerce platforms</li>
-                </p>
+                <ul>
+                    <li>Founded and operated a sneaker resale and customization business.</li>
+                    <li>Managed design, e‑commerce, pricing, fulfillment, and customer relations.</li>
+                    <li>Built a digital marketing strategy, growing to 5,700+ Instagram followers and 100,000+ YouTube views.</li>
+                    <li>Generated $89,000+ revenue over 7 years.</li>
+                </ul>
             </div>
         </section>
 
-        <section id="skills" class="reveal">
+        <!-- SKILLS -->
+        <section id="skills" class="section reveal shade-2">
             <h2>Skills</h2>
             <ul class="skills">
                 <li>Python</li>
@@ -96,7 +96,8 @@
             </ul>
         </section>
 
-        <section id="education" class="reveal">
+        <!-- EDUCATION -->
+        <section id="education" class="section reveal shade-1">
             <h2>Education</h2>
             <div class="card">
                 <h3>Trinity College Dublin</h3>
@@ -105,9 +106,10 @@
             </div>
         </section>
 
-        <footer class="reveal">
+        <footer class="section reveal">
             <p>© Jack Joseph</p>
         </footer>
+
     </main>
 
     <script src="script.js"></script>
