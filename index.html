@@ -3,124 +3,135 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jack Joseph</title>
-
-    <!-- Original font (Bricolage Grotesque) -->
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;400;600;700&display=swap" rel="stylesheet">
-
+    <title>Jack Joseph - Engineering Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-    <!-- Deepest: mouse reactive ripples -->
-    <canvas id="ripple-canvas"></canvas>
+    <nav>
+        <div class="container">
+            <div class="logo">JJ</div>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+            </ul>
+        </div>
+    </nav>
 
-    <!-- Middle: navy ribbon waves -->
-    <canvas id="wave-canvas"></canvas>
-
-    <!-- Top background: turbulent clouds -->
-    <canvas id="bg-canvas"></canvas>
-
-    <main id="content">
-
-        <!-- HEADER -->
-        <header class="section reveal shade-1">
-            <img src="assets/profile.jpg" alt="Profile photo of Jack Joseph" class="profile-photo" />
+    <div class="hero">
+        <div class="hero-content">
+            <img src="assets/profile.jpg" alt="Jack Joseph" class="profile-image" />
             <h1>Jack Joseph</h1>
             <p class="subtitle">3rd Year Engineering with Management — Trinity College Dublin</p>
-            <p class="contact">
-                <a href="mailto:josephj1@tcd.ie">josephj1@tcd.ie</a> • 
-                <a href="https://www.linkedin.com/in/jack-joseph-b38851240/">LinkedIn</a> • 
+            <div class="contact-links">
+                <a href="mailto:josephj1@tcd.ie">Email</a>
+                <a href="https://www.linkedin.com/in/jack-joseph-b38851240/">LinkedIn</a>
                 <a href="https://github.com">GitHub</a>
-            </p>
-        </header>
+            </div>
+        </div>
+    </div>
 
-        <!-- ABOUT -->
-        <section id="about" class="section reveal shade-2">
+    <section id="about">
+        <div class="container">
             <h2>About Me</h2>
-            <p>
-                I am a 3rd year Engineering with Management student at Trinity College Dublin,
-                passionate about technology, systems thinking, and solving real‑world problems
-                through engineering design and strategic management.
-            </p>
-        </section>
-
-        <!-- EXPERIENCE -->
-        <section id="experience" class="section reveal shade-1">
-            <h2>Experience</h2>
-
-            <div class="card">
-                <h3>Marketing — Sprout &amp; Co</h3>
-                <p class="date">Sep 2022 – March 2023</p>
-                <ul>
-                    <li>Originally starting solely as a marketing intern, I quickly took on responsibilities such as head of customer relationship management, lead graphic designer, lead filmmaker and editor, etc.</li>
-                    <li>Succeeded in cutting operational costs by roughly €8,000 by doing all CRM, signage, graphic design, and videography in-house.</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <h3>Tower Engineer &amp; Chief Structural Engineer — Trinity Floating Wind</h3>
-                <p class="date">July 2024 – Present</p>
-                <ul>
-                    <li>1st Place for Power Generation Efficiency</li>
-                    <li>1st Place for Sustainable Transport</li>
-                    <li>2nd Best All-Around Model</li>
-                    <li>Conceptualized, designed, and manufactured the ball joint and tower system.</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- PROJECTS -->
-        <section id="projects" class="section reveal shade-2">
-            <h2>Projects</h2>
-
-            <div class="card">
-                <h3>Custom Hi‑fi Speaker Build</h3>
+            <div class="about-content">
                 <p>
-                    Hi‑fi speaker featuring a 2‑way 2nd order custom 4534Hz crossover, Bluetooth or line‑in,
-                    volume control, and a carefully tuned enclosure.
+                    I am a 3rd year Engineering with Management student at Trinity College Dublin,
+                    passionate about technology, systems thinking, and solving real-world problems
+                    through engineering design and strategic management.
                 </p>
             </div>
+        </div>
+    </section>
 
-            <div class="card">
-                <h3>Jackelboi Customs</h3>
-                <ul>
-                    <li>Founded and operated a sneaker resale and customization business, designing and producing durable, high-quality custom footwear.</li>
-                    <li>Managed end-to-end operations including product design, e-commerce sales, pricing, fulfillment, and customer relations.</li>
-                    <li>Built and executed digital marketing and social media strategy, growing an audience to 5,700+ Instagram followers and 100,000+ YouTube views organically.</li>
-                    <li>Generated $89,000+ in revenue over 7 years via multiple e-commerce platforms.</li>
-                </ul>
+    <section id="experience">
+        <div class="container">
+            <h2>Experience</h2>
+            <div class="experience-grid">
+                <div class="exp-card">
+                    <h3>Marketing — Sprout & Co</h3>
+                    <span class="date">Sep 2022 – March 2023</span>
+                    <ul>
+                        <li>Originally starting solely as a marketing intern, I quickly took on responsibilities such as head of customer relationship management, lead graphic designer, lead filmmaker and editor</li>
+                        <li>Succeeded in cutting operational costs by roughly €8,000 by doing all CRM, signage, graphic design, and videography in-house</li>
+                    </ul>
+                </div>
+
+                <div class="exp-card">
+                    <h3>Tower Engineer & Chief Structural Engineer — Trinity Floating Wind</h3>
+                    <span class="date">July 2024 – Present</span>
+                    <ul>
+                        <li>1st Place for Power Generation Efficiency</li>
+                        <li>1st Place for Sustainable Transport</li>
+                        <li>2nd Best All-Around Model</li>
+                        <li>Conceptualized, designed, and manufactured the ball joint and tower system</li>
+                    </ul>
+                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- SKILLS -->
-        <section id="skills" class="section reveal shade-1">
+    <section id="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="assets/speaker.jpg" alt="Custom Hi-fi Speaker" class="project-image" />
+                    <div class="project-content">
+                        <h3>Custom Hi-fi Speaker Build</h3>
+                        <p>
+                            Hi-fi speaker featuring a 2-way 2nd order custom 4534Hz crossover, Bluetooth or line-in,
+                            volume control, and a carefully tuned enclosure.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="assets/jackelboi.jpg" alt="Jackelboi Customs" class="project-image" />
+                    <div class="project-content">
+                        <h3>Jackelboi Customs</h3>
+                        <ul>
+                            <li>Founded and operated a sneaker resale and customization business</li>
+                            <li>Managed end-to-end operations including product design and e-commerce</li>
+                            <li>Grew to 5,700+ Instagram followers and 100,000+ YouTube views organically</li>
+                            <li>Generated $89,000+ in revenue over 7 years</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
             <h2>Skills</h2>
-            <ul class="skills">
-                <li>Python</li>
-                <li>MATLAB</li>
-                <li>Marketing</li>
-                <li>Graphic Design</li>
-                <li>CAD / SolidWorks</li>
-                <li>CRM</li>
-            </ul>
-        </section>
+            <div class="skills-grid">
+                <div class="skill-item">Python</div>
+                <div class="skill-item">MATLAB</div>
+                <div class="skill-item">Marketing</div>
+                <div class="skill-item">Graphic Design</div>
+                <div class="skill-item">CAD / SolidWorks</div>
+                <div class="skill-item">CRM</div>
+            </div>
+        </div>
+    </section>
 
-        <!-- EDUCATION -->
-        <section id="education" class="section reveal shade-2">
+    <section id="education">
+        <div class="container">
             <h2>Education</h2>
-            <div class="card">
+            <div class="education-card">
                 <h3>Trinity College Dublin</h3>
-                <p class="date">2022 – Present</p>
+                <span class="date">2022 – Present</span>
                 <p>B.A.I. Engineering with Management</p>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <footer class="section reveal shade-1">
-            <p>© Jack Joseph</p>
-        </footer>
-
-    </main>
+    <footer>
+        <p>© 2026 Jack Joseph. All rights reserved.</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
