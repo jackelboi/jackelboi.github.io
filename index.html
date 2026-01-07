@@ -63,7 +63,6 @@
             display: flex;
             list-style: none;
             gap: 2rem;
-            align-items: center;
         }
 
         nav a {
@@ -74,49 +73,6 @@
         }
 
         nav a:hover {
-            color: var(--accent);
-        }
-
-        /* Dropdown */
-        .dropdown {
-            position: relative;
-        }
-
-        .dropdown-toggle {
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 0.3rem;
-        }
-
-        .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            right: 0;
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-            min-width: 200px;
-            margin-top: 0.5rem;
-            display: none;
-            overflow: hidden;
-        }
-
-        .dropdown-menu.show {
-            display: block;
-        }
-
-        .dropdown-menu a {
-            display: block;
-            padding: 0.8rem 1.2rem;
-            color: var(--text);
-            text-decoration: none;
-            transition: background 0.2s;
-        }
-
-        .dropdown-menu a:hover {
-            background: var(--bg);
             color: var(--accent);
         }
 
@@ -319,7 +275,7 @@
             font-weight: bold;
         }
 
-        /* Projects Section - Image Focused */
+        /* Projects Section */
         #projects {
             background: var(--bg);
         }
@@ -336,7 +292,6 @@
             overflow: hidden;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
         }
 
         .project-card:hover {
@@ -349,6 +304,7 @@
             height: 280px;
             object-fit: cover;
             transition: transform 0.4s;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
 
         .project-card:hover .project-image {
@@ -452,132 +408,6 @@
             padding: 3rem 2rem;
         }
 
-        /* Projects Gallery Page */
-        .projects-page {
-            display: none;
-            padding-top: 70px;
-        }
-
-        .projects-page.active {
-            display: block;
-        }
-
-        .project-showcase {
-            margin-bottom: 0;
-        }
-
-        .project-slider {
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            overflow: hidden;
-            background: #000;
-        }
-
-        .slider-container {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-            height: 100%;
-        }
-
-        .slide {
-            min-width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-
-        .slide img, .slide video {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        .project-info {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-            padding: 3rem 2rem 2rem;
-            color: white;
-        }
-
-        .project-info h2 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            text-align: left;
-            transform: none;
-            left: 0;
-        }
-
-        .project-info h2::after {
-            display: none;
-        }
-
-        .project-info p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            max-width: 800px;
-        }
-
-        .slider-nav {
-            position: absolute;
-            bottom: 5rem;
-            right: 2rem;
-            display: flex;
-            gap: 1rem;
-            z-index: 10;
-        }
-
-        .slider-btn {
-            background: rgba(255, 255, 255, 0.2);
-            border: 2px solid white;
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            transition: all 0.3s;
-            backdrop-filter: blur(10px);
-        }
-
-        .slider-btn:hover {
-            background: white;
-            color: var(--accent);
-        }
-
-        .slider-dots {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 0.8rem;
-            z-index: 10;
-        }
-
-        .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .dot.active {
-            background: white;
-            width: 30px;
-            border-radius: 6px;
-        }
-
         /* Responsive */
         @media (max-width: 768px) {
             nav ul {
@@ -599,26 +429,12 @@
             nav .container {
                 padding: 0 1rem;
             }
-
-            .project-info h2 {
-                font-size: 1.8rem;
-            }
-
-            .slider-nav {
-                bottom: 6rem;
-            }
         }
 
-        /* Mobile nav */
         @media (max-width: 600px) {
             nav ul {
                 display: none;
             }
-        }
-
-        /* Page visibility */
-        #home-content.hidden {
-            display: none;
         }
     </style>
 </head>
@@ -627,324 +443,150 @@
         <div class="container">
             <div class="logo">JJ</div>
             <ul>
-                <li><a href="#" onclick="showHome()">Home</a></li>
-                <li class="dropdown">
-                    <span class="dropdown-toggle" onclick="toggleDropdown()">
-                        Projects ▾
-                    </span>
-                    <div class="dropdown-menu" id="projectsDropdown">
-                        <a href="#" onclick="showProject('visuals')">Jack Joseph Visuals</a>
-                        <a href="#" onclick="showProject('umbers')">Umbers Hats & Co</a>
-                        <a href="#" onclick="showProject('speaker')">Custom Speaker Build</a>
-                        <a href="#" onclick="showProject('floating-wind')">Trinity Floating Wind</a>
-                        <a href="#" onclick="showProject('safelane')">Safelane</a>
-                        <a href="#" onclick="showProject('spikespy')">SpikeSpy</a>
-                        <a href="#" onclick="showProject('jackelboi')">Jackelboi Customs</a>
-                        <a href="#" onclick="showProject('sprout')">Sprout & Co Marketing</a>
-                        <a href="#" onclick="showProject('dudj')">DUDJ Marketing</a>
-                    </div>
-                </li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
             </ul>
         </div>
     </nav>
 
-    <div id="home-content">
-        <div class="hero">
-            <div class="hero-content">
-                <img src="assets/profile.jpg" alt="Jack Joseph" class="profile-image" />
-                <h1>Jack Joseph</h1>
-                <p class="subtitle">3rd Year Engineering with Management — Trinity College Dublin</p>
-                <div class="contact-links">
-                    <a href="mailto:josephj1@tcd.ie">Email</a>
-                    <a href="https://www.linkedin.com/in/jack-joseph-b38851240/">LinkedIn</a>
-                    <a href="https://github.com">GitHub</a>
+    <div class="hero">
+        <div class="hero-content">
+            <img src="assets/profile.jpg" alt="Jack Joseph" class="profile-image" onerror="this.style.display='none'" />
+            <h1>Jack Joseph</h1>
+            <p class="subtitle">3rd Year Engineering with Management — Trinity College Dublin</p>
+            <div class="contact-links">
+                <a href="mailto:josephj1@tcd.ie">Email</a>
+                <a href="https://www.linkedin.com/in/jack-joseph-b38851240/">LinkedIn</a>
+                <a href="https://github.com">GitHub</a>
+            </div>
+        </div>
+    </div>
+
+    <section id="about" class="visible">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <p>
+                    I am a 3rd year Engineering with Management student at Trinity College Dublin,
+                    passionate about technology, systems thinking, and solving real-world problems
+                    through engineering design and strategic management.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <h2>Experience</h2>
+            <div class="experience-grid">
+                <div class="exp-card">
+                    <h3>Marketing — Sprout & Co</h3>
+                    <span class="date">Sep 2022 – March 2023</span>
+                    <ul>
+                        <li>Originally starting solely as a marketing intern, I quickly took on responsibilities such as head of customer relationship management, lead graphic designer, lead filmmaker and editor</li>
+                        <li>Succeeded in cutting operational costs by roughly €8,000 by doing all CRM, signage, graphic design, and videography in-house</li>
+                    </ul>
+                </div>
+
+                <div class="exp-card">
+                    <h3>Tower Engineer & Chief Structural Engineer — Trinity Floating Wind</h3>
+                    <span class="date">July 2024 – Present</span>
+                    <ul>
+                        <li>1st Place for Power Generation Efficiency</li>
+                        <li>1st Place for Sustainable Transport</li>
+                        <li>2nd Best All-Around Model</li>
+                        <li>Conceptualized, designed, and manufactured the ball joint and tower system</li>
+                    </ul>
                 </div>
             </div>
         </div>
+    </section>
 
-        <section id="about">
-            <div class="container">
-                <h2>About Me</h2>
-                <div class="about-content">
-                    <p>
-                        I am a 3rd year Engineering with Management student at Trinity College Dublin,
-                        passionate about technology, systems thinking, and solving real-world problems
-                        through engineering design and strategic management.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <section id="experience">
-            <div class="container">
-                <h2>Experience</h2>
-                <div class="experience-grid">
-                    <div class="exp-card">
-                        <h3>Marketing — Sprout & Co</h3>
-                        <span class="date">Sep 2022 – March 2023</span>
-                        <ul>
-                            <li>Originally starting solely as a marketing intern, I quickly took on responsibilities such as head of customer relationship management, lead graphic designer, lead filmmaker and editor</li>
-                            <li>Succeeded in cutting operational costs by roughly €8,000 by doing all CRM, signage, graphic design, and videography in-house</li>
-                        </ul>
+    <section id="projects">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="assets/speaker.jpg" alt="Custom Hi-fi Speaker" class="project-image" onerror="this.style.background='linear-gradient(135deg, #667eea 0%, #764ba2 100%)'" />
+                    <div class="project-content">
+                        <h3>Custom Hi-fi Speaker Build</h3>
+                        <p>
+                            Hi-fi speaker featuring a 2-way 2nd order custom 4534Hz crossover, Bluetooth or line-in,
+                            volume control, and a carefully tuned enclosure.
+                        </p>
                     </div>
+                </div>
 
-                    <div class="exp-card">
-                        <h3>Tower Engineer & Chief Structural Engineer — Trinity Floating Wind</h3>
-                        <span class="date">July 2024 – Present</span>
+                <div class="project-card">
+                    <img src="assets/jackelboi.jpg" alt="Jackelboi Customs" class="project-image" onerror="this.style.background='linear-gradient(135deg, #f093fb 0%, #f5576c 100%)'" />
+                    <div class="project-content">
+                        <h3>Jackelboi Customs</h3>
                         <ul>
-                            <li>1st Place for Power Generation Efficiency</li>
-                            <li>1st Place for Sustainable Transport</li>
-                            <li>2nd Best All-Around Model</li>
-                            <li>Conceptualized, designed, and manufactured the ball joint and tower system</li>
+                            <li>Founded and operated a sneaker resale and customization business</li>
+                            <li>Managed end-to-end operations including product design and e-commerce</li>
+                            <li>Grew to 5,700+ Instagram followers and 100,000+ YouTube views organically</li>
+                            <li>Generated $89,000+ in revenue over 7 years</li>
                         </ul>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <section id="projects">
-            <div class="container">
-                <h2>Featured Projects</h2>
-                <div class="projects-grid">
-                    <div class="project-card" onclick="showProject('speaker')">
-                        <img src="assets/speaker.jpg" alt="Custom Hi-fi Speaker" class="project-image" />
-                        <div class="project-content">
-                            <h3>Custom Hi-fi Speaker Build</h3>
-                            <p>
-                                Hi-fi speaker featuring a 2-way 2nd order custom 4534Hz crossover, Bluetooth or line-in,
-                                volume control, and a carefully tuned enclosure.
-                            </p>
-                        </div>
+                <div class="project-card">
+                    <div class="project-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
+                    <div class="project-content">
+                        <h3>Trinity Floating Wind</h3>
+                        <p>
+                            Award-winning floating wind turbine project. Achieved 1st place in Power Generation Efficiency,
+                            1st place in Sustainable Transport, and 2nd Best All-Around Model.
+                        </p>
                     </div>
+                </div>
 
-                    <div class="project-card" onclick="showProject('jackelboi')">
-                        <img src="assets/jackelboi.jpg" alt="Jackelboi Customs" class="project-image" />
-                        <div class="project-content">
-                            <h3>Jackelboi Customs</h3>
-                            <ul>
-                                <li>Founded and operated a sneaker resale and customization business</li>
-                                <li>Managed end-to-end operations including product design and e-commerce</li>
-                                <li>Grew to 5,700+ Instagram followers and 100,000+ YouTube views organically</li>
-                                <li>Generated $89,000+ in revenue over 7 years</li>
-                            </ul>
-                        </div>
+                <div class="project-card">
+                    <div class="project-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);"></div>
+                    <div class="project-content">
+                        <h3>Jack Joseph Visuals</h3>
+                        <p>
+                            Creative visual content, videography, and multimedia production projects
+                            showcasing storytelling through visual media.
+                        </p>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="skills">
-            <div class="container">
-                <h2>Skills</h2>
-                <div class="skills-grid">
-                    <div class="skill-item">Python</div>
-                    <div class="skill-item">MATLAB</div>
-                    <div class="skill-item">Marketing</div>
-                    <div class="skill-item">Graphic Design</div>
-                    <div class="skill-item">CAD / SolidWorks</div>
-                    <div class="skill-item">CRM</div>
-                </div>
+    <section id="skills">
+        <div class="container">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item">Python</div>
+                <div class="skill-item">MATLAB</div>
+                <div class="skill-item">Marketing</div>
+                <div class="skill-item">Graphic Design</div>
+                <div class="skill-item">CAD / SolidWorks</div>
+                <div class="skill-item">CRM</div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="education">
-            <div class="container">
-                <h2>Education</h2>
-                <div class="education-card">
-                    <h3>Trinity College Dublin</h3>
-                    <span class="date">2022 – Present</span>
-                    <p>B.A.I. Engineering with Management</p>
-                </div>
+    <section id="education">
+        <div class="container">
+            <h2>Education</h2>
+            <div class="education-card">
+                <h3>Trinity College Dublin</h3>
+                <span class="date">2022 – Present</span>
+                <p>B.A.I. Engineering with Management</p>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <footer>
-            <p>© 2026 Jack Joseph. All rights reserved.</p>
-        </footer>
-    </div>
-
-    <!-- Projects Gallery Page -->
-    <div id="projects-page" class="projects-page"></div>
+    <footer>
+        <p>© 2026 Jack Joseph. All rights reserved.</p>
+    </footer>
 
     <script>
-        // Project data
-        const projectsData = {
-            'visuals': {
-                title: 'Jack Joseph Visuals',
-                description: 'Creative visual content and videography projects.',
-                images: [
-                    'assets/projects/visuals-1.jpg',
-                    'assets/projects/visuals-2.jpg',
-                    'assets/projects/visuals-3.jpg'
-                ]
-            },
-            'umbers': {
-                title: 'Umbers Hats & Co',
-                description: 'Custom hat design and production business.',
-                images: [
-                    'assets/projects/umbers-1.jpg',
-                    'assets/projects/umbers-2.jpg',
-                    'assets/projects/umbers-3.jpg'
-                ]
-            },
-            'speaker': {
-                title: 'Custom Hi-fi Speaker Build',
-                description: 'Hi-fi speaker featuring a 2-way 2nd order custom 4534Hz crossover, Bluetooth or line-in, volume control, and a carefully tuned enclosure.',
-                images: [
-                    'assets/speaker.jpg',
-                    'assets/projects/speaker-2.jpg',
-                    'assets/projects/speaker-3.jpg'
-                ]
-            },
-            'floating-wind': {
-                title: 'Trinity Floating Wind',
-                description: '1st Place Power Generation Efficiency, 1st Place Sustainable Transport, 2nd Best All-Around Model.',
-                images: [
-                    'assets/projects/wind-1.jpg',
-                    'assets/projects/wind-2.jpg',
-                    'assets/projects/wind-3.jpg'
-                ]
-            },
-            'safelane': {
-                title: 'Safelane',
-                description: 'Safety and navigation technology project.',
-                images: [
-                    'assets/projects/safelane-1.jpg',
-                    'assets/projects/safelane-2.jpg',
-                    'assets/projects/safelane-3.jpg'
-                ]
-            },
-            'spikespy': {
-                title: 'SpikeSpy',
-                description: 'Data analytics and monitoring solution.',
-                images: [
-                    'assets/projects/spikespy-1.jpg',
-                    'assets/projects/spikespy-2.jpg',
-                    'assets/projects/spikespy-3.jpg'
-                ]
-            },
-            'jackelboi': {
-                title: 'Jackelboi Customs',
-                description: 'Sneaker resale and customization business. Generated $89,000+ in revenue over 7 years with 5,700+ Instagram followers.',
-                images: [
-                    'assets/jackelboi.jpg',
-                    'assets/projects/jackelboi-2.jpg',
-                    'assets/projects/jackelboi-3.jpg'
-                ]
-            },
-            'sprout': {
-                title: 'Sprout & Co Marketing',
-                description: 'Lead marketing, CRM, graphic design, and videography. Cut operational costs by €8,000.',
-                images: [
-                    'assets/projects/sprout-1.jpg',
-                    'assets/projects/sprout-2.jpg',
-                    'assets/projects/sprout-3.jpg'
-                ]
-            },
-            'dudj': {
-                title: 'DUDJ Marketing',
-                description: 'Marketing and brand development project.',
-                images: [
-                    'assets/projects/dudj-1.jpg',
-                    'assets/projects/dudj-2.jpg',
-                    'assets/projects/dudj-3.jpg'
-                ]
-            }
-        };
-
-        let currentSlide = 0;
-        let autoSlideInterval;
-
-        function toggleDropdown() {
-            document.getElementById('projectsDropdown').classList.toggle('show');
-        }
-
-        function showHome() {
-            document.getElementById('home-content').classList.remove('hidden');
-            document.getElementById('projects-page').classList.remove('active');
-            document.getElementById('projectsDropdown').classList.remove('show');
-            clearInterval(autoSlideInterval);
-        }
-
-        function showProject(projectId) {
-            const project = projectsData[projectId];
-            if (!project) return;
-
-            document.getElementById('home-content').classList.add('hidden');
-            document.getElementById('projectsDropdown').classList.remove('show');
-            
-            const projectsPage = document.getElementById('projects-page');
-            projectsPage.classList.add('active');
-            
-            projectsPage.innerHTML = `
-                <div class="project-showcase">
-                    <div class="project-slider">
-                        <div class="slider-container" id="sliderContainer">
-                            ${project.images.map((img, index) => `
-                                <div class="slide">
-                                    <img src="${img}" alt="${project.title} ${index + 1}" />
-                                    ${index === 0 ? `
-                                        <div class="project-info">
-                                            <h2>${project.title}</h2>
-                                            <p>${project.description}</p>
-                                        </div>
-                                    ` : ''}
-                                </div>
-                            `).join('')}
-                        </div>
-                        <div class="slider-nav">
-                            <button class="slider-btn" onclick="prevSlide()">‹</button>
-                            <button class="slider-btn" onclick="nextSlide()">›</button>
-                        </div>
-                        <div class="slider-dots">
-                            ${project.images.map((_, index) => `
-                                <span class="dot ${index === 0 ? 'active' : ''}" onclick="goToSlide(${index})"></span>
-                            `).join('')}
-                        </div>
-                    </div>
-                </div>
-            `;
-
-            currentSlide = 0;
-            startAutoSlide();
-        }
-
-        function goToSlide(index) {
-            const slider = document.getElementById('sliderContainer');
-            const dots = document.querySelectorAll('.dot');
-            
-            currentSlide = index;
-            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
-            
-            dots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === currentSlide);
-            });
-        }
-
-        function nextSlide() {
-            const dots = document.querySelectorAll('.dot');
-            currentSlide = (currentSlide + 1) % dots.length;
-            goToSlide(currentSlide);
-        }
-
-        function prevSlide() {
-            const dots = document.querySelectorAll('.dot');
-            currentSlide = (currentSlide - 1 + dots.length) % dots.length;
-            goToSlide(currentSlide);
-        }
-
-        function startAutoSlide() {
-            clearInterval(autoSlideInterval);
-            autoSlideInterval = setInterval(nextSlide, 4000);
-        }
-
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!e.target.closest('.dropdown')) {
-                document.getElementById('projectsDropdown').classList.remove('show');
-            }
-        });
-
         // Smooth scroll for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -983,3 +625,6 @@
                 nav.style.boxShadow = 'none';
             }
         });
+    </script>
+</body>
+</html>
