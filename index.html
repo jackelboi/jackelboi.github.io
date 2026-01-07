@@ -315,12 +315,18 @@
             font-size: 1.5rem;
             transition: all 0.3s;
             backdrop-filter: blur(10px);
+            user-select: none;
         }
 
         .slider-btn:hover {
             background: white;
             color: #000;
             border-color: white;
+            transform: scale(1.1);
+        }
+
+        .slider-btn:active {
+            transform: scale(0.95);
         }
 
         .slider-dots {
@@ -335,6 +341,12 @@
             background: rgba(255, 255, 255, 0.3);
             cursor: pointer;
             transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .dot:hover {
+            background: rgba(255, 255, 255, 0.6);
+            transform: scale(1.2);
         }
 
         .dot.active {
@@ -492,13 +504,13 @@
             <div class="image-slider" data-project="visuals">
                 <div class="slides-container">
                     <div class="slide">
-                        <iframe src="https://www.youtube.com/embed/j-Q4IJfR6WQ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                    <div class="slide">
                         <iframe src="https://www.youtube.com/embed/HGZYB6mUM8s" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="slide">
                         <iframe src="https://www.youtube.com/embed/6IbHHNg2tuY" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="slide">
+                        <iframe src="https://www.youtube.com/embed/j-Q4IJfR6WQ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="slide">
                         <img src="assets/projects/visuals-1.jpg" alt="Visuals 1" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-1\'>Visual Content</div>'" />
@@ -513,16 +525,16 @@
                 <div class="drag-hint">← Swipe or drag →</div>
             </div>
             <div class="slider-controls">
-                <button class="slider-btn prev-btn" onclick="changeSlide('visuals', -1)">‹</button>
+                <button class="slider-btn prev-btn" onclick="event.preventDefault(); event.stopPropagation(); changeSlide('visuals', -1);">‹</button>
                 <div class="slider-dots" data-slider="visuals">
-                    <span class="dot active" onclick="goToSlide('visuals', 0)"></span>
-                    <span class="dot" onclick="goToSlide('visuals', 1)"></span>
-                    <span class="dot" onclick="goToSlide('visuals', 2)"></span>
-                    <span class="dot" onclick="goToSlide('visuals', 3)"></span>
-                    <span class="dot" onclick="goToSlide('visuals', 4)"></span>
-                    <span class="dot" onclick="goToSlide('visuals', 5)"></span>
+                    <span class="dot active" onclick="event.preventDefault(); event.stopPropagation(); goToSlide('visuals', 0);"></span>
+                    <span class="dot" onclick="event.preventDefault(); event.stopPropagation(); goToSlide('visuals', 1);"></span>
+                    <span class="dot" onclick="event.preventDefault(); event.stopPropagation(); goToSlide('visuals', 2);"></span>
+                    <span class="dot" onclick="event.preventDefault(); event.stopPropagation(); goToSlide('visuals', 3);"></span>
+                    <span class="dot" onclick="event.preventDefault(); event.stopPropagation(); goToSlide('visuals', 4);"></span>
+                    <span class="dot" onclick="event.preventDefault(); event.stopPropagation(); goToSlide('visuals', 5);"></span>
                 </div>
-                <button class="slider-btn next-btn" onclick="changeSlide('visuals', 1)">›</button>
+                <button class="slider-btn next-btn" onclick="event.preventDefault(); event.stopPropagation(); changeSlide('visuals', 1);">›</button>
             </div>
         </div>
     </section>
