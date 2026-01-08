@@ -403,17 +403,23 @@
             <div class="image-slider">
                 <div class="slides-container" id="slider-visuals">
                     <div class="slide">
-                        <iframe src="https://www.youtube.com/embed/j-Q4IJfR6WQ?enablejsapi=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/6IbHHNg2tuY?enablejsapi=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="slide">
                         <iframe src="https://www.youtube.com/embed/HGZYB6mUM8s?enablejsapi=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="slide">
-                        <iframe src="https://www.youtube.com/embed/6IbHHNg2tuY?enablejsapi=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/t_5wJ2zNA_k?enablejsapi=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
-                    <div class="slide"><div class="slide-gradient gradient-1">Visual Content</div></div>
-                    <div class="slide"><div class="slide-gradient gradient-1">Photography</div></div>
-                    <div class="slide"><div class="slide-gradient gradient-1">Production</div></div>
+                    <div class="slide">
+                        <img src="assets/visuals-1.jpg" alt="Visuals 1" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-1\'>Visual Content</div>'" />
+                    </div>
+                    <div class="slide">
+                        <img src="assets/visuals-2.jpg" alt="Visuals 2" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-1\'>Photography</div>'" />
+                    </div>
+                    <div class="slide">
+                        <img src="assets/visuals-3.jpg" alt="Visuals 3" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-1\'>Production</div>'" />
+                    </div>
                 </div>
             </div>
             <div class="slider-controls">
@@ -440,9 +446,36 @@
         <div class="slider-wrapper">
             <div class="image-slider">
                 <div class="slides-container" id="slider-umbers">
-                    <div class="slide"><div class="slide-gradient gradient-2">Design</div></div>
-                    <div class="slide"><div class="slide-gradient gradient-2">Craftsmanship</div></div>
-                    <div class="slide"><div class="slide-gradient gradient-2">Products</div></div>
+                    <div class="slide">
+                        <img src="assets/umbers-1.jpg" alt="Umbers 1" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-2\'>Design 1</div>'" />
+                    </div>
+                    <div class="slide">
+                        <img src="assets/umbers-2.jpg" alt="Umbers 2" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-2\'>Design 2</div>'" />
+                    </div>
+                    <div class="slide">
+                        <img src="assets/umbers-3.jpg" alt="Umbers 3" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-2\'>Design 3</div>'" />
+                    </div>
+                    <div class="slide">
+                        <img src="assets/umbers-4.jpg" alt="Umbers 4" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-2\'>Design 4</div>'" />
+                    </div>
+                    <div class="slide">
+                        <img src="assets/umbers-5.jpg" alt="Umbers 5" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-2\'>Design 5</div>'" />
+                    </div>
+                    <div class="slide">
+                        <img src="assets/umbers-6.jpg" alt="Umbers 6" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-2\'>Design 6</div>'" />
+                    </div>
+                    <div class="slide">
+                        <img src="assets/umbers-7.jpg" alt="Umbers 7" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-2\'>Design 7</div>'" />
+                    </div>
+                    <div class="slide">
+                        <img src="assets/umbers-8.jpg" alt="Umbers 8" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-2\'>Design 8</div>'" />
+                    </div>
+                    <div class="slide">
+                        <img src="assets/umbers-9.jpg" alt="Umbers 9" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-2\'>Design 9</div>'" />
+                    </div>
+                    <div class="slide">
+                        <img src="assets/umbers-10.jpg" alt="Umbers 10" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-2\'>Design 10</div>'" />
+                    </div>
                 </div>
             </div>
             <div class="slider-controls">
@@ -451,6 +484,13 @@
                     <span class="dot active" onclick="goToSlide('umbers', 0)"></span>
                     <span class="dot" onclick="goToSlide('umbers', 1)"></span>
                     <span class="dot" onclick="goToSlide('umbers', 2)"></span>
+                    <span class="dot" onclick="goToSlide('umbers', 3)"></span>
+                    <span class="dot" onclick="goToSlide('umbers', 4)"></span>
+                    <span class="dot" onclick="goToSlide('umbers', 5)"></span>
+                    <span class="dot" onclick="goToSlide('umbers', 6)"></span>
+                    <span class="dot" onclick="goToSlide('umbers', 7)"></span>
+                    <span class="dot" onclick="goToSlide('umbers', 8)"></span>
+                    <span class="dot" onclick="goToSlide('umbers', 9)"></span>
                 </div>
                 <button class="slider-btn" onclick="nextSlide('umbers')">›</button>
             </div>
@@ -507,6 +547,9 @@
             speaker: 0
         };
 
+        let autoSlideIntervals = {};
+        let isHovering = {};
+
         function nextSlide(project) {
             const container = document.getElementById('slider-' + project);
             const dots = document.getElementById('dots-' + project).children;
@@ -537,10 +580,32 @@
             dots[slides[project]].classList.add('active');
         }
 
-        // Auto-slide every 4 seconds
-        setInterval(function() {
-            nextSlide('visuals');
-        }, 4000);
+        function startAutoSlide(project) {
+            autoSlideIntervals[project] = setInterval(function() {
+                if (!isHovering[project]) {
+                    nextSlide(project);
+                }
+            }, 5000);
+        }
+
+        function stopAutoSlide(project) {
+            clearInterval(autoSlideIntervals[project]);
+        }
+
+        // Initialize auto-slide for all projects
+        ['visuals', 'umbers', 'speaker'].forEach(function(project) {
+            isHovering[project] = false;
+            startAutoSlide(project);
+
+            // Add hover listeners to pause auto-slide
+            const slider = document.getElementById('slider-' + project).parentElement;
+            slider.addEventListener('mouseenter', function() {
+                isHovering[project] = true;
+            });
+            slider.addEventListener('mouseleave', function() {
+                isHovering[project] = false;
+            });
+        });
     </script>
 </body>
 </html>
