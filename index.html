@@ -243,12 +243,6 @@
             display: flex;
             transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
             height: 100%;
-            cursor: grab;
-        }
-
-        .slides-container.dragging {
-            cursor: grabbing;
-            transition: none;
         }
 
         .slide {
@@ -357,14 +351,7 @@
 
         /* Touch/Drag indicator */
         .drag-hint {
-            position: absolute;
-            bottom: 1rem;
-            left: 50%;
-            transform: translateX(-50%);
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.9rem;
-            pointer-events: none;
-            z-index: 10;
+            display: none;
         }
 
         /* Skills Section */
@@ -504,13 +491,13 @@
             <div class="image-slider" data-project="visuals">
                 <div class="slides-container">
                     <div class="slide">
-                        <iframe src="https://www.youtube.com/embed/j-Q4IJfR6WQ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/j-Q4IJfR6WQ?enablejsapi=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="slide">
-                        <iframe src="https://www.youtube.com/embed/HGZYB6mUM8s" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/HGZYB6mUM8s?enablejsapi=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="slide">
-                        <iframe src="https://www.youtube.com/embed/6IbHHNg2tuY" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/6IbHHNg2tuY?enablejsapi=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="slide">
                         <img src="assets/projects/visuals-1.jpg" alt="Visuals 1" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-1\'>Visual Content</div>'" />
