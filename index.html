@@ -197,18 +197,30 @@
         .image-slider {
             position: relative;
             width: 100%;
-            height: 600px;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
             overflow: hidden;
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
         }
 
-        /* Triple image grid for Umbers */
+        .image-slider .slides-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+        }
+
+        /* Triple image grid for Umbers - keep original height */
         .image-slider.triple-grid {
             height: 600px;
+            padding-bottom: 0;
         }
 
         .image-slider.triple-grid .slides-container {
+            position: relative;
             display: flex;
             height: 100%;
         }
@@ -643,31 +655,25 @@
             <p>Sneaker resale and customization business. Generated $89,000+ in revenue over 7 years with 5,700+ Instagram followers and 100,000+ YouTube views.</p>
         </div>
         <div class="slider-wrapper">
-            <div class="image-slider triple-grid">
+            <div class="image-slider">
                 <div class="slides-container" id="slider-jackelboi">
                     <div class="slide">
-                        <iframe src="https://www.youtube.com/embed/vDUb3GZd0Xk?enablejsapi=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 100%; height: 100%; border-radius: 0;"></iframe>
+                        <iframe src="https://www.youtube.com/embed/vDUb3GZd0Xk?enablejsapi=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="slide">
-                        <iframe src="https://www.youtube.com/embed/L0ae-o86a1U?enablejsapi=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 100%; height: 100%; border-radius: 0;"></iframe>
+                        <iframe src="https://www.youtube.com/embed/L0ae-o86a1U?enablejsapi=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="slide">
-                        <iframe src="https://www.youtube.com/embed/aC7FNUWhTxs?enablejsapi=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 100%; height: 100%; border-radius: 0;"></iframe>
+                        <iframe src="https://www.youtube.com/embed/aC7FNUWhTxs?enablejsapi=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="slide">
                         <img src="assets/jackelboi-1.jpg" alt="Jackelboi 1" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-7\'>Custom Design 1</div>'" />
+                    </div>
+                    <div class="slide">
                         <img src="assets/jackelboi-2.jpg" alt="Jackelboi 2" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-7\'>Custom Design 2</div>'" />
+                    </div>
+                    <div class="slide">
                         <img src="assets/jackelboi-3.jpg" alt="Jackelboi 3" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-7\'>Custom Design 3</div>'" />
-                    </div>
-                    <div class="slide">
-                        <img src="assets/jackelboi-4.jpg" alt="Jackelboi 4" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-7\'>Custom Design 4</div>'" />
-                        <img src="assets/jackelboi-5.jpg" alt="Jackelboi 5" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-7\'>Custom Design 5</div>'" />
-                        <img src="assets/jackelboi-6.jpg" alt="Jackelboi 6" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-7\'>Custom Design 6</div>'" />
-                    </div>
-                    <div class="slide">
-                        <img src="assets/jackelboi-7.jpg" alt="Jackelboi 7" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-7\'>Custom Design 7</div>'" />
-                        <img src="assets/jackelboi-8.jpg" alt="Jackelboi 8" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-7\'>Custom Design 8</div>'" />
-                        <img src="assets/jackelboi-9.jpg" alt="Jackelboi 9" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-7\'>Custom Design 9</div>'" />
                     </div>
                 </div>
             </div>
@@ -728,13 +734,25 @@
             <div class="image-slider">
                 <div class="slides-container" id="slider-dudj">
                     <div class="slide">
-                        <img src="assets/dudj-1.jpg" alt="DUDJ 1" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-9\'>Strategy</div>'" />
+                        <iframe src="https://www.youtube.com/embed/nUzp-FmdMy8?enablejsapi=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="slide">
-                        <img src="assets/dudj-2.jpg" alt="DUDJ 2" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-9\'>Execution</div>'" />
+                        <iframe src="https://www.youtube.com/embed/UiMZ_1udfhs?enablejsapi=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="slide">
-                        <img src="assets/dudj-3.jpg" alt="DUDJ 3" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-9\'>Results</div>'" />
+                        <iframe src="https://www.youtube.com/embed/DzHG0iU-jE0?enablejsapi=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="slide">
+                        <iframe src="https://www.youtube.com/embed/5WHEE7_mg0Y?enablejsapi=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="slide">
+                        <iframe src="https://www.youtube.com/embed/iEytTk0nm8Y?enablejsapi=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="slide">
+                        <iframe src="https://www.youtube.com/embed/izsYSP3XNpo?enablejsapi=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="slide">
+                        <iframe src="https://www.youtube.com/embed/W_hqIDFPQ94?enablejsapi=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
@@ -744,6 +762,10 @@
                     <span class="dot active" onclick="goToSlide('dudj', 0)"></span>
                     <span class="dot" onclick="goToSlide('dudj', 1)"></span>
                     <span class="dot" onclick="goToSlide('dudj', 2)"></span>
+                    <span class="dot" onclick="goToSlide('dudj', 3)"></span>
+                    <span class="dot" onclick="goToSlide('dudj', 4)"></span>
+                    <span class="dot" onclick="goToSlide('dudj', 5)"></span>
+                    <span class="dot" onclick="goToSlide('dudj', 6)"></span>
                 </div>
                 <button class="slider-btn" onclick="nextSlide('dudj')">›</button>
             </div>
