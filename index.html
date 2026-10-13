@@ -18,6 +18,10 @@
             --accent: #3b82f6;
             --bg: #fafafa;
             --text: #ffffff;
+
+            /* Instagram crop: height of Instagram's account header that gets hidden.
+               If you still see the header, increase this. If the top of the photo is cut off, decrease it. */
+            --ig-header-crop: 54px;
         }
 
         body {
@@ -185,6 +189,28 @@
             line-height: 1.6;
         }
 
+        .project-header p + p {
+            margin-top: 1rem;
+        }
+
+        /* Highlight chips under a project description */
+        .project-stats {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-top: 2rem;
+        }
+
+        .project-stats span {
+            padding: 0.6rem 1.2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
         /* Image Slider */
         .slider-wrapper {
             position: relative;
@@ -192,6 +218,10 @@
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 3rem;
+        }
+
+        .slider-wrapper + .slider-wrapper {
+            margin-top: 4rem;
         }
 
         .image-slider {
@@ -213,7 +243,16 @@
             display: flex;
         }
 
-        /* Triple image grid for Umbers - keep original height */
+        /* 4:3 landscape slider, capped so the whole photo fits on screen */
+        .image-slider.landscape {
+            height: auto;
+            padding-bottom: 0;
+            aspect-ratio: 4 / 3;
+            width: min(100%, calc(85vh * 4 / 3));
+            margin: 0 auto;
+        }
+
+        /* Triple image grid for Umbers */
         .image-slider.triple-grid {
             height: 600px;
             padding-bottom: 0;
@@ -245,36 +284,44 @@
             border-radius: 20px;
         }
 
-        /* Triple Instagram grid - taller to fit Instagram's header and caption bar */
+        /* Triple Instagram grid, cropped to hide the account header and comment box */
         .image-slider.insta-grid {
-            height: 780px;
+            height: auto;
             padding-bottom: 0;
         }
 
         .image-slider.insta-grid .slides-container {
             position: relative;
             display: flex;
-            height: 100%;
+            align-items: flex-start;
         }
 
         .image-slider.insta-grid .slide {
             min-width: 100%;
-            height: 100%;
             flex-shrink: 0;
             display: flex;
             gap: 1.5rem;
             padding: 2rem;
             background: #000;
-            align-items: stretch;
             justify-content: center;
         }
 
-        .image-slider.insta-grid .slide iframe {
-            width: calc(33.333% - 1rem);
-            height: 100%;
-            border: none;
+        .insta-frame {
+            position: relative;
+            flex: 0 0 calc(33.333% - 1rem);
+            aspect-ratio: 2 / 3;
+            overflow: hidden;
             border-radius: 20px;
             background: #fff;
+        }
+
+        .insta-frame iframe {
+            position: absolute;
+            top: calc(-1 * var(--ig-header-crop));
+            left: 0;
+            width: 100%;
+            height: calc(100% + var(--ig-header-crop) + 200px);
+            border: none;
         }
 
         .slides-container {
@@ -310,6 +357,8 @@
             font-size: 3rem;
             font-weight: 800;
             color: white;
+            text-align: center;
+            padding: 1rem;
         }
 
         /* Gradients */
@@ -346,6 +395,7 @@
             font-size: 1.5rem;
             transition: all 0.3s;
             user-select: none;
+            flex-shrink: 0;
         }
 
         .slider-btn:hover {
@@ -357,6 +407,8 @@
         .slider-dots {
             display: flex;
             gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .dot {
@@ -430,6 +482,10 @@
                 padding: 0 1.5rem;
             }
 
+            .project-header {
+                padding: 0 1.5rem 3rem;
+            }
+
             .slider-wrapper {
                 padding: 0 1rem;
             }
@@ -438,11 +494,11 @@
                 height: 300px;
             }
 
-            /* On phones, Instagram embeds scroll sideways within each slide */
-            .image-slider.insta-grid {
-                height: 640px;
+            .slide-gradient {
+                font-size: 1.6rem;
             }
 
+            /* On phones, Instagram embeds scroll sideways within each slide */
             .image-slider.insta-grid .slide {
                 justify-content: flex-start;
                 overflow-x: auto;
@@ -450,9 +506,21 @@
                 gap: 1rem;
             }
 
-            .image-slider.insta-grid .slide iframe {
-                flex: 0 0 85%;
-                width: 85%;
+            .insta-frame {
+                flex: 0 0 80%;
+            }
+
+            .slider-controls {
+                gap: 1rem;
+            }
+
+            .slider-btn {
+                width: 48px;
+                height: 48px;
+            }
+
+            .slider-dots {
+                gap: 0.6rem;
             }
         }
 
@@ -499,28 +567,46 @@
 
     <div id="projects"></div>
 
-    <!-- Trinity Soundsystem Build (Instagram, 3 per slide) -->
+    <!-- Trinity Soundsystem Build -->
     <section class="project-section">
         <div class="project-header">
             <h2>Trinity Soundsystem Build</h2>
-            <p>A student-built 3-way reggae soundsystem, developed with the Engineering Society and Trinity Arts Workshop.
-                Dual 18" hogscoop subs, dual 15" midbass, and B&amp;C DE250 compression drivers. I lead both the technical
-                and commercial sides, from cabinet design, REW acoustic measurement, and amplifier sizing to custom
-                3D-printed horn adapters scripted in Fusion 360 Python.
+            <p>
+                A full-scale, three-way tower soundsystem designed, engineered, and built entirely by students at
+                Trinity College Dublin, in a collaboration between DUDJ, the Engineering Society, and Trinity Arts Workshop.
             </p>
+            <p>
+                I led the technical design. The subs are loaded-horn enclosures inspired by the hogscoop design, paired with
+                15" midbass and B&amp;C DE250 compression drivers on top. I modelled and rendered the full system in SolidWorks
+                and used COMSOL simulation in the acoustic design. The whole three-way signal runs over a single 8-pole cable,
+                split out by custom 3D-printed breakout boxes, and I designed the horn adapters and terminals by hand in Fusion 360
+                before printing them.
+            </p>
+            <p>
+                The system launched on May 28th at Trinity's Pavilion Bar, first played by Dublin reggae legend Firehouse Paul,
+                who built Ireland's first DIY reggae soundsystem, Firehouse Skank. It has since been featured in Four Four Magazine,
+                Lovin Dublin, The University Times, and TNII.
+            </p>
+            <div class="project-stats">
+                <span>2,400+ Instagram followers</span>
+                <span>360,000+ people reached</span>
+                <span>Best Community Building Event &mdash; CSC Awards</span>
+            </div>
         </div>
+
+        <!-- Instagram posts, 3 per slide -->
         <div class="slider-wrapper">
             <div class="image-slider insta-grid">
                 <div class="slides-container" id="slider-soundsystem">
                     <div class="slide">
-                        <iframe src="https://www.instagram.com/reel/DW_s1WLjO_y/embed" allowfullscreen scrolling="no" loading="lazy" title="Trinity Soundsystem reel 1"></iframe>
-                        <iframe src="https://www.instagram.com/reel/DZKrWUBx5SK/embed" allowfullscreen scrolling="no" loading="lazy" title="Trinity Soundsystem reel 2"></iframe>
-                        <iframe src="https://www.instagram.com/reel/DWO3FcQDEyd/embed" allowfullscreen scrolling="no" loading="lazy" title="Trinity Soundsystem reel 3"></iframe>
+                        <div class="insta-frame"><iframe src="https://www.instagram.com/reel/DW_s1WLjO_y/embed" allowfullscreen scrolling="no" loading="lazy" title="Trinity Soundsystem reel 1"></iframe></div>
+                        <div class="insta-frame"><iframe src="https://www.instagram.com/reel/DZKrWUBx5SK/embed" allowfullscreen scrolling="no" loading="lazy" title="Trinity Soundsystem reel 2"></iframe></div>
+                        <div class="insta-frame"><iframe src="https://www.instagram.com/reel/DWO3FcQDEyd/embed" allowfullscreen scrolling="no" loading="lazy" title="Trinity Soundsystem reel 3"></iframe></div>
                     </div>
                     <div class="slide">
-                        <iframe src="https://www.instagram.com/p/DW3t8vAkW6M/embed" allowfullscreen scrolling="no" loading="lazy" title="Trinity Soundsystem post 1"></iframe>
-                        <iframe src="https://www.instagram.com/p/DZh44-tETFj/embed" allowfullscreen scrolling="no" loading="lazy" title="Trinity Soundsystem post 2"></iframe>
-                        <iframe src="https://www.instagram.com/reel/DbQ0cbex-x8/embed" allowfullscreen scrolling="no" loading="lazy" title="Trinity Soundsystem reel 4"></iframe>
+                        <div class="insta-frame"><iframe src="https://www.instagram.com/p/DW3t8vAkW6M/embed" allowfullscreen scrolling="no" loading="lazy" title="Trinity Soundsystem post 1"></iframe></div>
+                        <div class="insta-frame"><iframe src="https://www.instagram.com/p/DZh44-tETFj/embed" allowfullscreen scrolling="no" loading="lazy" title="Trinity Soundsystem post 2"></iframe></div>
+                        <div class="insta-frame"><iframe src="https://www.instagram.com/reel/DbQ0cbex-x8/embed" allowfullscreen scrolling="no" loading="lazy" title="Trinity Soundsystem reel 4"></iframe></div>
                     </div>
                 </div>
             </div>
@@ -531,6 +617,56 @@
                     <span class="dot" onclick="goToSlide('soundsystem', 1)"></span>
                 </div>
                 <button class="slider-btn" onclick="nextSlide('soundsystem')">&rsaquo;</button>
+            </div>
+        </div>
+
+        <!-- Build photos, 4:3 landscape -->
+        <div class="slider-wrapper">
+            <div class="image-slider landscape">
+                <div class="slides-container" id="slider-soundsystem-build">
+                    <div class="slide">
+                        <img src="assets/soundsystem-1.jpg" alt="Trinity Soundsystem build photo 1" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-6\'>Build Photo 1</div>'" />
+                    </div>
+                    <div class="slide">
+                        <img src="assets/soundsystem-2.jpg" alt="Trinity Soundsystem build photo 2" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-6\'>Build Photo 2</div>'" />
+                    </div>
+                    <div class="slide">
+                        <img src="assets/soundsystem-3.jpg" alt="Trinity Soundsystem build photo 3" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-6\'>Build Photo 3</div>'" />
+                    </div>
+                    <div class="slide">
+                        <img src="assets/soundsystem-4.jpg" alt="Trinity Soundsystem build photo 4" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-6\'>Build Photo 4</div>'" />
+                    </div>
+                    <div class="slide">
+                        <img src="assets/soundsystem-5.jpg" alt="Trinity Soundsystem build photo 5" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-6\'>Build Photo 5</div>'" />
+                    </div>
+                    <div class="slide">
+                        <img src="assets/soundsystem-6.jpg" alt="Trinity Soundsystem build photo 6" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-6\'>Build Photo 6</div>'" />
+                    </div>
+                    <div class="slide">
+                        <img src="assets/soundsystem-7.jpg" alt="Trinity Soundsystem build photo 7" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-6\'>Build Photo 7</div>'" />
+                    </div>
+                    <div class="slide">
+                        <img src="assets/soundsystem-8.jpg" alt="Trinity Soundsystem build photo 8" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-6\'>Build Photo 8</div>'" />
+                    </div>
+                    <div class="slide">
+                        <img src="assets/soundsystem-9.jpg" alt="Trinity Soundsystem build photo 9" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-6\'>Build Photo 9</div>'" />
+                    </div>
+                </div>
+            </div>
+            <div class="slider-controls">
+                <button class="slider-btn" onclick="prevSlide('soundsystem-build')">&lsaquo;</button>
+                <div class="slider-dots" id="dots-soundsystem-build">
+                    <span class="dot active" onclick="goToSlide('soundsystem-build', 0)"></span>
+                    <span class="dot" onclick="goToSlide('soundsystem-build', 1)"></span>
+                    <span class="dot" onclick="goToSlide('soundsystem-build', 2)"></span>
+                    <span class="dot" onclick="goToSlide('soundsystem-build', 3)"></span>
+                    <span class="dot" onclick="goToSlide('soundsystem-build', 4)"></span>
+                    <span class="dot" onclick="goToSlide('soundsystem-build', 5)"></span>
+                    <span class="dot" onclick="goToSlide('soundsystem-build', 6)"></span>
+                    <span class="dot" onclick="goToSlide('soundsystem-build', 7)"></span>
+                    <span class="dot" onclick="goToSlide('soundsystem-build', 8)"></span>
+                </div>
+                <button class="slider-btn" onclick="nextSlide('soundsystem-build')">&rsaquo;</button>
             </div>
         </div>
     </section>
@@ -916,16 +1052,17 @@
 
     <script>
         const slides = {
-            soundsystem: 0,
-            visuals: 0,
-            umbers: 0,
-            speaker: 0,
-            wind: 0,
-            safelane: 0,
-            spikespy: 0,
-            jackelboi: 0,
-            sprout: 0,
-            dudj: 0
+            'soundsystem': 0,
+            'soundsystem-build': 0,
+            'visuals': 0,
+            'umbers': 0,
+            'speaker': 0,
+            'wind': 0,
+            'safelane': 0,
+            'spikespy': 0,
+            'jackelboi': 0,
+            'sprout': 0,
+            'dudj': 0
         };
 
         let autoSlideIntervals = {};
@@ -952,7 +1089,7 @@
             const container = document.getElementById('slider-' + project);
             const dots = document.getElementById('dots-' + project).children;
             container.style.transform = 'translateX(-' + (slides[project] * 100) + '%)';
-            
+
             for (let i = 0; i < dots.length; i++) {
                 dots[i].classList.remove('active');
             }
@@ -967,7 +1104,7 @@
             }, 5000);
         }
 
-        // Initialize auto-slide for all projects
+        // Initialize auto-slide for all sliders
         Object.keys(slides).forEach(function(project) {
             isHovering[project] = false;
             startAutoSlide(project);
