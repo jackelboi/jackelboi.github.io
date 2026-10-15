@@ -19,11 +19,14 @@
             --bg: #fafafa;
             --text: #ffffff;
 
-            /* Instagram window sizing.
-               --ig-header: height of Instagram's account bar (name + followers).
-               --ig-media-ratio: height of the video/photo as a % of its width (125% = 4:5, Instagram's standard).
-               If a thin white strip shows at the bottom, lower --ig-header. If the bottom of a video is cut, raise it. */
+            /* Instagram window sizing. The frame shows: account bar (name + followers), the video,
+               then the icons and like count. Everything below the likes ("Add a comment") is cropped.
+               --ig-header: height of the account bar at the top.
+               --ig-footer: height from the bottom of the video down to the end of the likes line.
+               --ig-media-ratio: video/photo height as a % of its width (125% = 4:5, Instagram's standard).
+               If "Add a comment" shows, lower --ig-footer. If the likes line is cut off, raise it. */
             --ig-header: 54px;
+            --ig-footer: 96px;
             --ig-media-ratio: 125%;
         }
 
@@ -205,6 +208,25 @@
             margin-top: 1rem;
         }
 
+        /* Spec list, shown as centered chips */
+        .spec-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .spec-list li {
+            padding: 0.6rem 1.2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
         /* Highlight chips under a project description */
         .project-stats {
             display: flex;
@@ -321,7 +343,7 @@
         .insta-frame::before {
             content: "";
             display: block;
-            padding-top: calc(var(--ig-media-ratio) + var(--ig-header));
+            padding-top: calc(var(--ig-media-ratio) + var(--ig-header) + var(--ig-footer));
         }
 
         .insta-frame iframe {
@@ -603,32 +625,6 @@
             </div>
         </div>
 
-        <!-- Instagram posts, 3 per slide -->
-        <div class="slider-wrapper">
-            <div class="image-slider insta-grid">
-                <div class="slides-container" id="slider-soundsystem">
-                    <div class="slide">
-                        <div class="insta-frame"><iframe src="https://www.instagram.com/reel/DW_s1WLjO_y/embed" allowfullscreen scrolling="no" loading="lazy" title="Trinity Soundsystem reel 1"></iframe></div>
-                        <div class="insta-frame"><iframe src="https://www.instagram.com/reel/DZKrWUBx5SK/embed" allowfullscreen scrolling="no" loading="lazy" title="Trinity Soundsystem reel 2"></iframe></div>
-                        <div class="insta-frame"><iframe src="https://www.instagram.com/reel/DWO3FcQDEyd/embed" allowfullscreen scrolling="no" loading="lazy" title="Trinity Soundsystem reel 3"></iframe></div>
-                    </div>
-                    <div class="slide">
-                        <div class="insta-frame"><iframe src="https://www.instagram.com/p/DW3t8vAkW6M/embed" allowfullscreen scrolling="no" loading="lazy" title="Trinity Soundsystem post 1"></iframe></div>
-                        <div class="insta-frame"><iframe src="https://www.instagram.com/p/DZh44-tETFj/embed" allowfullscreen scrolling="no" loading="lazy" title="Trinity Soundsystem post 2"></iframe></div>
-                        <div class="insta-frame"><iframe src="https://www.instagram.com/reel/DbQ0cbex-x8/embed" allowfullscreen scrolling="no" loading="lazy" title="Trinity Soundsystem reel 4"></iframe></div>
-                    </div>
-                </div>
-            </div>
-            <div class="slider-controls">
-                <button class="slider-btn" onclick="prevSlide('soundsystem')">&lsaquo;</button>
-                <div class="slider-dots" id="dots-soundsystem">
-                    <span class="dot active" onclick="goToSlide('soundsystem', 0)"></span>
-                    <span class="dot" onclick="goToSlide('soundsystem', 1)"></span>
-                </div>
-                <button class="slider-btn" onclick="nextSlide('soundsystem')">&rsaquo;</button>
-            </div>
-        </div>
-
         <!-- Build photos, 16:9 -->
         <div class="slider-wrapper">
             <div class="image-slider">
@@ -678,136 +674,30 @@
                 <button class="slider-btn" onclick="nextSlide('soundsystem-build')">&rsaquo;</button>
             </div>
         </div>
-    </section>
 
-    <!-- Jack Joseph Visuals -->
-    <section class="project-section">
-        <div class="project-header">
-            <h2>Jack Joseph Visuals</h2>
-            <p>Creative visual content, videography, and multimedia production.</p>
-        </div>
+        <!-- Instagram posts, 3 per slide -->
         <div class="slider-wrapper">
-            <div class="image-slider">
-                <div class="slides-container" id="slider-visuals">
+            <div class="image-slider insta-grid">
+                <div class="slides-container" id="slider-soundsystem">
                     <div class="slide">
-                        <iframe src="https://www.youtube.com/embed/6IbHHNg2tuY?enablejsapi=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <div class="insta-frame"><iframe src="https://www.instagram.com/reel/DW_s1WLjO_y/embed" allowfullscreen scrolling="no" loading="lazy" title="Trinity Soundsystem reel 1"></iframe></div>
+                        <div class="insta-frame"><iframe src="https://www.instagram.com/reel/DZKrWUBx5SK/embed" allowfullscreen scrolling="no" loading="lazy" title="Trinity Soundsystem reel 2"></iframe></div>
+                        <div class="insta-frame"><iframe src="https://www.instagram.com/reel/DWO3FcQDEyd/embed" allowfullscreen scrolling="no" loading="lazy" title="Trinity Soundsystem reel 3"></iframe></div>
                     </div>
                     <div class="slide">
-                        <iframe src="https://www.youtube.com/embed/HGZYB6mUM8s?enablejsapi=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                    <div class="slide">
-                        <iframe src="https://www.youtube.com/embed/t_5wJ2zNA_k?enablejsapi=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                    <div class="slide">
-                        <img src="assets/visuals-1.jpg" alt="Visuals 1" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-1\'>Visual Content</div>'" />
-                    </div>
-                    <div class="slide">
-                        <img src="assets/visuals-2.jpg" alt="Visuals 2" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-1\'>Photography</div>'" />
-                    </div>
-                    <div class="slide">
-                        <img src="assets/visuals-3.jpg" alt="Visuals 3" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-1\'>Production</div>'" />
+                        <div class="insta-frame"><iframe src="https://www.instagram.com/p/DW3t8vAkW6M/embed" allowfullscreen scrolling="no" loading="lazy" title="Trinity Soundsystem post 1"></iframe></div>
+                        <div class="insta-frame"><iframe src="https://www.instagram.com/p/DZh44-tETFj/embed" allowfullscreen scrolling="no" loading="lazy" title="Trinity Soundsystem post 2"></iframe></div>
+                        <div class="insta-frame"><iframe src="https://www.instagram.com/reel/DbQ0cbex-x8/embed" allowfullscreen scrolling="no" loading="lazy" title="Trinity Soundsystem reel 4"></iframe></div>
                     </div>
                 </div>
             </div>
             <div class="slider-controls">
-                <button class="slider-btn" onclick="prevSlide('visuals')">&lsaquo;</button>
-                <div class="slider-dots" id="dots-visuals">
-                    <span class="dot active" onclick="goToSlide('visuals', 0)"></span>
-                    <span class="dot" onclick="goToSlide('visuals', 1)"></span>
-                    <span class="dot" onclick="goToSlide('visuals', 2)"></span>
-                    <span class="dot" onclick="goToSlide('visuals', 3)"></span>
-                    <span class="dot" onclick="goToSlide('visuals', 4)"></span>
-                    <span class="dot" onclick="goToSlide('visuals', 5)"></span>
+                <button class="slider-btn" onclick="prevSlide('soundsystem')">&lsaquo;</button>
+                <div class="slider-dots" id="dots-soundsystem">
+                    <span class="dot active" onclick="goToSlide('soundsystem', 0)"></span>
+                    <span class="dot" onclick="goToSlide('soundsystem', 1)"></span>
                 </div>
-                <button class="slider-btn" onclick="nextSlide('visuals')">&rsaquo;</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Umbers Hats & Co -->
-    <section class="project-section">
-        <div class="project-header">
-            <h2>Umbers Hats &amp; Co</h2>
-            <p>Founder of a local hatwear brand. "Umberrrs" is a classic New Mexican schoolyard saying
-                meaning "you're in trouble." All design, marketing, production, and sales are done by myself in-house.
-            </p>
-        </div>
-        <div class="slider-wrapper">
-            <div class="image-slider triple-grid">
-                <div class="slides-container" id="slider-umbers">
-                    <div class="slide">
-                        <img src="assets/umbers-1.jpg" alt="Umbers 1" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-2\'>Design 1</div>'" />
-                        <img src="assets/umbers-2.jpg" alt="Umbers 2" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-2\'>Design 2</div>'" />
-                        <img src="assets/umbers-3.jpg" alt="Umbers 3" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-2\'>Design 3</div>'" />
-                    </div>
-                    <div class="slide">
-                        <img src="assets/umbers-4.jpg" alt="Umbers 4" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-2\'>Design 4</div>'" />
-                        <img src="assets/umbers-5.jpg" alt="Umbers 5" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-2\'>Design 5</div>'" />
-                        <img src="assets/umbers-6.jpg" alt="Umbers 6" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-2\'>Design 6</div>'" />
-                    </div>
-                    <div class="slide">
-                        <img src="assets/umbers-7.jpg" alt="Umbers 7" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-2\'>Design 7</div>'" />
-                        <img src="assets/umbers-8.jpg" alt="Umbers 8" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-2\'>Design 8</div>'" />
-                        <img src="assets/umbers-9.jpg" alt="Umbers 9" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-2\'>Design 9</div>'" />
-                    </div>
-                </div>
-            </div>
-            <div class="slider-controls">
-                <button class="slider-btn" onclick="prevSlide('umbers')">&lsaquo;</button>
-                <div class="slider-dots" id="dots-umbers">
-                    <span class="dot active" onclick="goToSlide('umbers', 0)"></span>
-                    <span class="dot" onclick="goToSlide('umbers', 1)"></span>
-                    <span class="dot" onclick="goToSlide('umbers', 2)"></span>
-                </div>
-                <button class="slider-btn" onclick="nextSlide('umbers')">&rsaquo;</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Custom Hi-fi Speaker Build -->
-    <section class="project-section">
-        <div class="project-header">
-            <h2>Custom Hi-fi Speaker Build</h2>
-            <p>2-way 2nd order custom 4534Hz crossover with Bluetooth.</p>
-        </div>
-        <div class="slider-wrapper">
-            <div class="image-slider">
-                <div class="slides-container" id="slider-speaker">
-                    <div class="slide">
-                        <iframe src="https://www.youtube.com/embed/x4s9UsKnLC0?enablejsapi=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                    <div class="slide">
-                        <img src="assets/speaker-1.jpg" alt="Speaker 1" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-3\'>Build Process</div>'" />
-                    </div>
-                    <div class="slide">
-                        <img src="assets/speaker-2.jpg" alt="Speaker 2" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-3\'>Components</div>'" />
-                    </div>
-                    <div class="slide">
-                        <img src="assets/speaker-3.jpg" alt="Speaker 3" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-3\'>Assembly</div>'" />
-                    </div>
-                    <div class="slide">
-                        <img src="assets/speaker-4.jpg" alt="Speaker 4" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-3\'>Crossover Circuit</div>'" />
-                    </div>
-                    <div class="slide">
-                        <img src="assets/speaker-5.jpg" alt="Speaker 5" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-3\'>Testing</div>'" />
-                    </div>
-                    <div class="slide">
-                        <img src="assets/speaker-6.jpg" alt="Speaker 6" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-3\'>Final Product</div>'" />
-                    </div>
-                </div>
-            </div>
-            <div class="slider-controls">
-                <button class="slider-btn" onclick="prevSlide('speaker')">&lsaquo;</button>
-                <div class="slider-dots" id="dots-speaker">
-                    <span class="dot active" onclick="goToSlide('speaker', 0)"></span>
-                    <span class="dot" onclick="goToSlide('speaker', 1)"></span>
-                    <span class="dot" onclick="goToSlide('speaker', 2)"></span>
-                    <span class="dot" onclick="goToSlide('speaker', 3)"></span>
-                    <span class="dot" onclick="goToSlide('speaker', 4)"></span>
-                    <span class="dot" onclick="goToSlide('speaker', 5)"></span>
-                    <span class="dot" onclick="goToSlide('speaker', 6)"></span>
-                </div>
-                <button class="slider-btn" onclick="nextSlide('speaker')">&rsaquo;</button>
+                <button class="slider-btn" onclick="nextSlide('soundsystem')">&rsaquo;</button>
             </div>
         </div>
     </section>
@@ -893,6 +783,59 @@
         </div>
     </section>
 
+    <!-- Custom Hi-fi Speaker Build -->
+    <section class="project-section">
+        <div class="project-header">
+            <h2>Custom Hi-fi Speaker Build</h2>
+            <p>Custom 2-way Active High Fidelity Speaker with:</p>
+            <ul class="spec-list">
+                <li>2nd Order Analog Crossover at 4534Hz</li>
+                <li>Bluetooth + Auxiliary Compatibility</li>
+                <li>Volume/Power Controls, Indicator LEDs</li>
+            </ul>
+        </div>
+        <div class="slider-wrapper">
+            <div class="image-slider">
+                <div class="slides-container" id="slider-speaker">
+                    <div class="slide">
+                        <iframe src="https://www.youtube.com/embed/x4s9UsKnLC0?enablejsapi=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="slide">
+                        <img src="assets/speaker-1.jpg" alt="Speaker 1" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-3\'>Build Process</div>'" />
+                    </div>
+                    <div class="slide">
+                        <img src="assets/speaker-2.jpg" alt="Speaker 2" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-3\'>Components</div>'" />
+                    </div>
+                    <div class="slide">
+                        <img src="assets/speaker-3.jpg" alt="Speaker 3" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-3\'>Assembly</div>'" />
+                    </div>
+                    <div class="slide">
+                        <img src="assets/speaker-4.jpg" alt="Speaker 4" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-3\'>Crossover Circuit</div>'" />
+                    </div>
+                    <div class="slide">
+                        <img src="assets/speaker-5.jpg" alt="Speaker 5" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-3\'>Testing</div>'" />
+                    </div>
+                    <div class="slide">
+                        <img src="assets/speaker-6.jpg" alt="Speaker 6" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-3\'>Final Product</div>'" />
+                    </div>
+                </div>
+            </div>
+            <div class="slider-controls">
+                <button class="slider-btn" onclick="prevSlide('speaker')">&lsaquo;</button>
+                <div class="slider-dots" id="dots-speaker">
+                    <span class="dot active" onclick="goToSlide('speaker', 0)"></span>
+                    <span class="dot" onclick="goToSlide('speaker', 1)"></span>
+                    <span class="dot" onclick="goToSlide('speaker', 2)"></span>
+                    <span class="dot" onclick="goToSlide('speaker', 3)"></span>
+                    <span class="dot" onclick="goToSlide('speaker', 4)"></span>
+                    <span class="dot" onclick="goToSlide('speaker', 5)"></span>
+                    <span class="dot" onclick="goToSlide('speaker', 6)"></span>
+                </div>
+                <button class="slider-btn" onclick="nextSlide('speaker')">&rsaquo;</button>
+            </div>
+        </div>
+    </section>
+
     <!-- SpikeSpy -->
     <section class="project-section">
         <div class="project-header">
@@ -913,6 +856,50 @@
                     <span class="dot active" onclick="goToSlide('spikespy', 0)"></span>
                 </div>
                 <button class="slider-btn" onclick="nextSlide('spikespy')">&rsaquo;</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Jack Joseph Visuals -->
+    <section class="project-section">
+        <div class="project-header">
+            <h2>Jack Joseph Visuals</h2>
+            <p>Creative visual content, videography, and multimedia production.</p>
+        </div>
+        <div class="slider-wrapper">
+            <div class="image-slider">
+                <div class="slides-container" id="slider-visuals">
+                    <div class="slide">
+                        <iframe src="https://www.youtube.com/embed/6IbHHNg2tuY?enablejsapi=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="slide">
+                        <iframe src="https://www.youtube.com/embed/HGZYB6mUM8s?enablejsapi=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="slide">
+                        <iframe src="https://www.youtube.com/embed/t_5wJ2zNA_k?enablejsapi=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="slide">
+                        <img src="assets/visuals-1.jpg" alt="Visuals 1" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-1\'>Visual Content</div>'" />
+                    </div>
+                    <div class="slide">
+                        <img src="assets/visuals-2.jpg" alt="Visuals 2" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-1\'>Photography</div>'" />
+                    </div>
+                    <div class="slide">
+                        <img src="assets/visuals-3.jpg" alt="Visuals 3" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-1\'>Production</div>'" />
+                    </div>
+                </div>
+            </div>
+            <div class="slider-controls">
+                <button class="slider-btn" onclick="prevSlide('visuals')">&lsaquo;</button>
+                <div class="slider-dots" id="dots-visuals">
+                    <span class="dot active" onclick="goToSlide('visuals', 0)"></span>
+                    <span class="dot" onclick="goToSlide('visuals', 1)"></span>
+                    <span class="dot" onclick="goToSlide('visuals', 2)"></span>
+                    <span class="dot" onclick="goToSlide('visuals', 3)"></span>
+                    <span class="dot" onclick="goToSlide('visuals', 4)"></span>
+                    <span class="dot" onclick="goToSlide('visuals', 5)"></span>
+                </div>
+                <button class="slider-btn" onclick="nextSlide('visuals')">&rsaquo;</button>
             </div>
         </div>
     </section>
@@ -961,34 +948,42 @@
         </div>
     </section>
 
-    <!-- Sprout & Co Marketing -->
+    <!-- Umbers Hats & Co -->
     <section class="project-section">
         <div class="project-header">
-            <h2>Sprout &amp; Co Marketing</h2>
-            <p>Lead marketing, CRM, graphic design, and videography. Successfully cut operational costs by &euro;8,000 through in-house production.</p>
+            <h2>Umbers Hats &amp; Co</h2>
+            <p>Founder of a local hatwear brand. "Umberrrs" is a classic New Mexican schoolyard saying
+                meaning "you're in trouble." All design, marketing, production, and sales are done by myself in-house.
+            </p>
         </div>
         <div class="slider-wrapper">
-            <div class="image-slider">
-                <div class="slides-container" id="slider-sprout">
+            <div class="image-slider triple-grid">
+                <div class="slides-container" id="slider-umbers">
                     <div class="slide">
-                        <img src="assets/sprout-1.jpg" alt="Sprout 1" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-8\'>Marketing Campaigns</div>'" />
+                        <img src="assets/umbers-1.jpg" alt="Umbers 1" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-2\'>Design 1</div>'" />
+                        <img src="assets/umbers-2.jpg" alt="Umbers 2" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-2\'>Design 2</div>'" />
+                        <img src="assets/umbers-3.jpg" alt="Umbers 3" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-2\'>Design 3</div>'" />
                     </div>
                     <div class="slide">
-                        <img src="assets/sprout-2.jpg" alt="Sprout 2" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-8\'>Brand Design</div>'" />
+                        <img src="assets/umbers-4.jpg" alt="Umbers 4" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-2\'>Design 4</div>'" />
+                        <img src="assets/umbers-5.jpg" alt="Umbers 5" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-2\'>Design 5</div>'" />
+                        <img src="assets/umbers-6.jpg" alt="Umbers 6" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-2\'>Design 6</div>'" />
                     </div>
                     <div class="slide">
-                        <img src="assets/sprout-3.jpg" alt="Sprout 3" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-8\'>Video Content</div>'" />
+                        <img src="assets/umbers-7.jpg" alt="Umbers 7" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-2\'>Design 7</div>'" />
+                        <img src="assets/umbers-8.jpg" alt="Umbers 8" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-2\'>Design 8</div>'" />
+                        <img src="assets/umbers-9.jpg" alt="Umbers 9" onerror="this.parentElement.innerHTML='<div class=\'slide-gradient gradient-2\'>Design 9</div>'" />
                     </div>
                 </div>
             </div>
             <div class="slider-controls">
-                <button class="slider-btn" onclick="prevSlide('sprout')">&lsaquo;</button>
-                <div class="slider-dots" id="dots-sprout">
-                    <span class="dot active" onclick="goToSlide('sprout', 0)"></span>
-                    <span class="dot" onclick="goToSlide('sprout', 1)"></span>
-                    <span class="dot" onclick="goToSlide('sprout', 2)"></span>
+                <button class="slider-btn" onclick="prevSlide('umbers')">&lsaquo;</button>
+                <div class="slider-dots" id="dots-umbers">
+                    <span class="dot active" onclick="goToSlide('umbers', 0)"></span>
+                    <span class="dot" onclick="goToSlide('umbers', 1)"></span>
+                    <span class="dot" onclick="goToSlide('umbers', 2)"></span>
                 </div>
-                <button class="slider-btn" onclick="nextSlide('sprout')">&rsaquo;</button>
+                <button class="slider-btn" onclick="nextSlide('umbers')">&rsaquo;</button>
             </div>
         </div>
     </section>
@@ -1061,16 +1056,15 @@
 
     <script>
         const slides = {
-            'soundsystem': 0,
             'soundsystem-build': 0,
-            'visuals': 0,
-            'umbers': 0,
-            'speaker': 0,
+            'soundsystem': 0,
             'wind': 0,
             'safelane': 0,
+            'speaker': 0,
             'spikespy': 0,
+            'visuals': 0,
             'jackelboi': 0,
-            'sprout': 0,
+            'umbers': 0,
             'dudj': 0
         };
 
